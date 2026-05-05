@@ -67,6 +67,21 @@ flowchart TD
   A11y --> State
 ```
 
+## Specialist Wing
+
+![Specialist wing](assets/specialist-wing.png)
+
+The delegation map shows the router and primary handoffs. The specialist wing rounds out the full 16-skill roster with the skills that tend to activate after a visual issue becomes more specific:
+
+- `brand-consistency-enforcer`
+- `real-content-layout-fuzzer`
+- `ab-visual-lab`
+- `hero-image-cinematographer`
+- `saas-dashboard-operator`
+- `game-ui-polish`
+- `motion-and-feedback-director`
+- `asset-provenance-librarian`
+
 ## Use It Two Ways
 
 ![Use it two ways](assets/use-it-two-ways.png)
@@ -169,5 +184,6 @@ The smoke test checks that:
 - `assets/what-you-get.png`: install value
 - `assets/how-it-works.png`: visual builder loop
 - `assets/delegation-map.png`: specialist routing
+- `assets/specialist-wing.png`: remaining specialist roster
 - `assets/use-it-two-ways.png`: standalone plus Spark dashboard usage
 - `assets/tested-before-ship.png`: validation and trust

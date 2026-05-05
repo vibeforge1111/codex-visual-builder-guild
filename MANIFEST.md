@@ -6,6 +6,7 @@
 - `assets/what-you-get.png`
 - `assets/how-it-works.png`
 - `assets/delegation-map.png`
+- `assets/specialist-wing.png`
 - `assets/use-it-two-ways.png`
 - `assets/tested-before-ship.png`
 
