@@ -15,6 +15,9 @@ const PACKAGE_JSON = path.join(ROOT, "package.json");
 const CODEX_SKILL = path.join(ROOT, "codex", "codex-visual-builder-guild", "SKILL.md");
 const CODEX_OPENAI = path.join(ROOT, "codex", "codex-visual-builder-guild", "agents", "openai.yaml");
 const INSTALLER = path.join(ROOT, "tools", "install-codex-skill.cjs");
+const DEMO_README = path.join(ROOT, "examples", "first-run-demo", "README.md");
+const DEMO_INDEX = path.join(ROOT, "examples", "first-run-demo", "index.html");
+const DEMO_STYLES = path.join(ROOT, "examples", "first-run-demo", "styles.css");
 
 let failures = 0;
 
@@ -72,9 +75,10 @@ function assertInstallWorks() {
   try {
     fs.mkdirSync(target, { recursive: true });
     fs.writeFileSync(path.join(target, "SKILL.md"), "stale install");
-    execFileSync(process.execPath, [INSTALLER], {
+    const output = execFileSync(process.execPath, [INSTALLER], {
       cwd: ROOT,
       env: { ...process.env, CODEX_HOME: tempCodexHome },
+      encoding: "utf8",
       stdio: "pipe"
     });
 
@@ -84,6 +88,9 @@ function assertInstallWorks() {
     assert(fs.existsSync(installedOpenAi), "installer should copy agents/openai.yaml");
     assert(read(installedSkill).includes("Codex Visual Builder Guild"), "installer should overwrite stale skill content");
     assert(read(installedOpenAi).includes("Codex Visual Builder Guild"), "installer should copy UI metadata");
+    assert(output.includes("CODEX_HOME:"), "installer output should print CODEX_HOME");
+    assert(output.includes("Verified:"), "installer output should include verification summary");
+    assert(output.includes("First 5-minute win prompt:"), "installer output should include first-run prompt");
   } finally {
     fs.rmSync(tempCodexHome, { recursive: true, force: true });
   }
@@ -102,7 +109,7 @@ assert(skills.length === 16, `expected 16 design skills, found ${skills.length}`
 assert(packageJson.scripts?.["install:codex"] === "node tools/install-codex-skill.cjs", "package.json should expose install:codex");
 assert(packageJson.scripts?.["audit:usage"] === "node tools/usage-audit.cjs", "package.json should expose audit:usage");
 
-for (const file of [README, PROMPTS, MANIFEST, CODEX_SKILL, CODEX_OPENAI, INSTALLER]) {
+for (const file of [README, PROMPTS, MANIFEST, CODEX_SKILL, CODEX_OPENAI, INSTALLER, DEMO_README, DEMO_INDEX, DEMO_STYLES]) {
   assert(fs.existsSync(file), `expected file to exist: ${path.relative(ROOT, file)}`);
 }
 
@@ -115,10 +122,30 @@ for (const id of skillIds) {
 for (const phrase of [
   "git clone https://github.com/vibeforge1111/codex-visual-builder-guild.git",
   "npm run install:codex",
-  "Use codex-visual-builder-guild to run the visual builder loop on this app."
+  "Use codex-visual-builder-guild to run the visual builder loop on this app.",
+  "First 5-Minute Win",
+  "You do not need Spark Skill Graphs for the first win",
+  "examples/first-run-demo"
 ]) {
   assert(readme.includes(phrase), `README should include install/invoke phrase: ${phrase}`);
-  assert(prompts.includes(phrase) || phrase.startsWith("git clone"), `PROMPTS should include invoke phrase: ${phrase}`);
+  assert(prompts.includes(phrase) || phrase.startsWith("git clone") || phrase === "You do not need Spark Skill Graphs for the first win" || phrase === "examples/first-run-demo", `PROMPTS should include invoke phrase: ${phrase}`);
+}
+
+for (const phrase of [
+  "First 5-Minute Win",
+  "top 3 visual issues",
+  "screenshot paths"
+]) {
+  assert(prompts.includes(phrase), `PROMPTS should include first-run phrase: ${phrase}`);
+}
+
+const demoText = `${read(DEMO_README)}\n${read(DEMO_INDEX)}\n${read(DEMO_STYLES)}`;
+for (const phrase of [
+  "Use codex-visual-builder-guild",
+  "desktop and mobile screenshots",
+  "intentional visual problems"
+]) {
+  assert(demoText.includes(phrase), `first-run demo should include: ${phrase}`);
 }
 
 for (const phrase of [
@@ -178,3 +205,4 @@ console.log("- PROMPTS specialist spellbook verified");
 console.log("- Codex wrapper trigger and metadata verified");
 console.log("- installer overwrite/idempotence verified in temp CODEX_HOME");
 console.log("- keyword routing checks passed for all 16 specialists");
+console.log("- beginner first-run and demo app coverage verified");

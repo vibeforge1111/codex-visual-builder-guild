@@ -30,11 +30,31 @@ function copyDir(src, dest) {
 
 const targetRoot = path.join(codexHome(), "skills");
 const target = path.join(targetRoot, "codex-visual-builder-guild");
+const installedSkill = path.join(target, "SKILL.md");
+const installedOpenAi = path.join(target, "agents", "openai.yaml");
 
 copyDir(source, target);
 
+if (!fs.existsSync(installedSkill)) {
+  throw new Error(`Install verification failed: missing ${installedSkill}`);
+}
+
+if (!fs.existsSync(installedOpenAi)) {
+  throw new Error(`Install verification failed: missing ${installedOpenAi}`);
+}
+
+console.log("Codex Visual Builder Guild installed.");
+console.log("");
+console.log(`CODEX_HOME: ${codexHome()}`);
 console.log("Installed Codex skill:");
 console.log(`  ${target}`);
 console.log("");
+console.log("Verified:");
+console.log("  - SKILL.md copied");
+console.log("  - agents/openai.yaml copied");
+console.log("");
 console.log("Restart Codex Desktop or start a new Codex session, then invoke it with:");
 console.log("  Use codex-visual-builder-guild to run the visual builder loop on this app.");
+console.log("");
+console.log("First 5-minute win prompt:");
+console.log("  Use codex-visual-builder-guild on this app. Run it locally, take desktop and mobile screenshots, inspect with vision, fix the highest-impact visual issue, then capture after screenshots.");

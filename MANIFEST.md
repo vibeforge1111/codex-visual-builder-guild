@@ -17,6 +17,12 @@
 - `FREE-DROP.md`
 - `MANIFEST.md`
 
+## Example App
+
+- `examples/first-run-demo/README.md`
+- `examples/first-run-demo/index.html`
+- `examples/first-run-demo/styles.css`
+
 ## Codex Skill
 
 - `codex/codex-visual-builder-guild/SKILL.md`

@@ -8,6 +8,18 @@ Think of it like hiring a tiny fantasy design studio for your Codex Desktop sess
 
 Free community drop. MIT licensed. Fork it, remix it, install it into Spark Skill Graphs, or use the YAML skills directly in your own agent runtime.
 
+## If You Are New, Choose This Path
+
+Most builders should start with **Codex Desktop**. You do not need Spark Skill Graphs for the first win.
+
+| You are... | Use this path | What you install |
+| --- | --- | --- |
+| using Codex Desktop and want visual QA now | **Codex wrapper** | one native Codex skill |
+| building your own agent runtime | standalone YAML | files from `design/*.yaml` |
+| already running Spark Skill Graphs | Spark dashboard path | `design/*.yaml` plus the bundle |
+
+If you are unsure, choose the Codex wrapper. It is the fastest path from "I saw this on X" to "Codex fixed a rendered UI after looking at screenshots."
+
 ## Install For Codex
 
 If you just want to use the guild inside Codex Desktop, install the native Codex wrapper skill:
@@ -19,13 +31,39 @@ npm install
 npm run install:codex
 ```
 
-Then restart Codex Desktop or start a new Codex session and say:
+The installer prints the exact skill folder, verifies that `SKILL.md` was copied, and gives you the smoke prompt.
+
+**Important:** restart Codex Desktop or open a new Codex session after installing. Already-open sessions may not see newly installed skills.
+
+Then say:
 
 ```text
 Use codex-visual-builder-guild to run the visual builder loop on this app.
 ```
 
 That gives Codex one easy skill to invoke. The wrapper skill knows the full 16-specialist guild and can route work through the right specialist lens.
+
+## Your First 5-Minute Win
+
+Use this when you want proof that the guild works, not a long design ceremony:
+
+```text
+Use codex-visual-builder-guild on this app.
+
+Run it locally, take desktop and mobile screenshots, inspect the rendered UI with vision, name the top 3 visual issues, fix the highest-impact one, then capture after screenshots.
+
+End with a plain-English before/after summary and the screenshot paths.
+```
+
+Expected result:
+
+- Codex runs the app instead of guessing from source code.
+- You get desktop and mobile screenshots.
+- The guild names the biggest visible problem.
+- Codex fixes one high-impact issue and screenshots the result.
+- The final answer includes what changed, what stayed weak, and where the screenshots live.
+
+Want a disposable target? Open [`examples/first-run-demo`](examples/first-run-demo) and ask the guild to improve it.
 
 ## The 10-Second Pitch
 
@@ -78,7 +116,7 @@ The guild is not a design theory packet. It is a working loop:
 6. Codex fixes the product and screenshots it again.
 7. Winning choices become reusable rules.
 
-Imagegen creates source material. Vision judges the real interface. Spark Skill Graphs make the specialist routing visible and reusable.
+Imagegen creates source material. Vision judges the real interface. Specialist lenses make the routing explicit. Spark Skill Graphs are optional unless you want the full graph/dashboard path.
 
 ## Summon The Right Specialist
 
@@ -153,6 +191,8 @@ The point is simple: one big vague prompt like "make it look better" becomes a t
 
 **Spark Skill Graphs**: copy the same files into a Spark Skill Graphs checkout. `design/*.yaml` become graph nodes, `delegates` become graph edges, and `bundles/codex-visual-builder-loop.yaml` becomes the recommended guild load order. This is the full graph/dashboard path.
 
+You can ignore the Spark section if you only want the Codex Desktop skill. Spark is for people who want visible graph routing, dashboard inspection, or to reuse the H70-C+ YAML directly.
+
 ## Install Into Spark Skill Graphs
 
 From this repo root:
@@ -186,6 +226,8 @@ This package includes local checks for the parts that matter most:
 - bundle load order resolution
 - common Codex visual-loop invocation cues
 - Codex wrapper install and invocation coverage
+- beginner first-run documentation coverage
+- demo app presence
 
 Validate this package:
 

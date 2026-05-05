@@ -19,6 +19,26 @@ Then restart Codex Desktop or start a new session and say:
 Use codex-visual-builder-guild to run the visual builder loop on this app.
 ```
 
+## First 5-Minute Win
+
+Use this first if you just installed the guild and want to see whether it works.
+
+```text
+Use codex-visual-builder-guild on this app.
+
+Run it locally, take desktop and mobile screenshots, inspect the rendered UI with vision, name the top 3 visual issues, fix the highest-impact one, then capture after screenshots.
+
+End with a plain-English before/after summary and the screenshot paths.
+```
+
+Good output should include:
+
+- the first desktop and mobile screenshots
+- the highest-impact issue chosen
+- the specialist lens used only if it helped the fix
+- the after screenshots
+- what improved, what stayed weak, and one reusable design rule
+
 ## Full Guild
 
 ```text
