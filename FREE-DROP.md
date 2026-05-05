@@ -9,7 +9,9 @@ MIT. Use it commercially, privately, publicly, in forks, in demos, in agent runt
 ## What You Can Do
 
 - Copy the skills into your own `spark-skill-graphs` repo.
+- Install the native Codex wrapper with `npm run install:codex`.
 - Use individual skills as standalone prompt/agent context.
+- Use `PROMPTS.md` as a copy-paste spellbook for invoking the full guild or a single specialist.
 - Build a dashboard or visualizer around the delegate graph.
 - Remix the H70-C+ content for your own design team.
 - Add new specialists and open a PR.

@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const yaml = require('yaml');
 
 const ROOT = path.resolve(__dirname, '..');
 const DESIGN_DIR = path.join(ROOT, 'design');
 const BUNDLE_FILE = path.join(ROOT, 'bundles', 'codex-visual-builder-loop.yaml');
+const CODEX_SKILL_FILE = path.join(ROOT, 'codex', 'codex-visual-builder-guild', 'SKILL.md');
+const CODEX_INSTALLER = path.join(ROOT, 'tools', 'install-codex-skill.cjs');
 const UPSTREAM_ROOT = process.env.SPARK_SKILL_GRAPHS_ROOT || 'C:/Users/USER/Desktop/spark-skill-graphs';
 
 function readYaml(file) {
@@ -123,6 +127,26 @@ for (const requiredCue of ['run', 'screenshot', 'vision', 'delegate', 'recapture
   assert(visualLoopText.includes(requiredCue), `visual-loop-qa should contain Codex loop cue: ${requiredCue}`);
 }
 
+const codexSkillText = fs.readFileSync(CODEX_SKILL_FILE, 'utf8');
+assert(codexSkillText.includes('name: codex-visual-builder-guild'), 'Codex wrapper skill must declare codex-visual-builder-guild');
+for (const id of skillIds) {
+  assert(codexSkillText.includes(id), `Codex wrapper skill should mention specialist: ${id}`);
+}
+
+const tempCodexHome = fs.mkdtempSync(path.join(os.tmpdir(), 'cvbg-codex-home-'));
+try {
+  execFileSync(process.execPath, [CODEX_INSTALLER], {
+    cwd: ROOT,
+    env: { ...process.env, CODEX_HOME: tempCodexHome },
+    stdio: 'pipe'
+  });
+  const installedSkill = path.join(tempCodexHome, 'skills', 'codex-visual-builder-guild', 'SKILL.md');
+  assert(fs.existsSync(installedSkill), 'Codex installer should copy SKILL.md into CODEX_HOME/skills');
+  assert(fs.readFileSync(installedSkill, 'utf8').includes('visual product team'), 'Installed Codex skill should contain guild instructions');
+} finally {
+  fs.rmSync(tempCodexHome, { recursive: true, force: true });
+}
+
 const upstreamIds = resolveUpstreamIds();
 const unresolved = [];
 for (const skill of skills) {
@@ -158,5 +182,6 @@ if (process.exitCode) {
 console.log('Smoke test passed');
 console.log(`- skills: ${skills.length}`);
 console.log(`- bundle: ${bundle.id}`);
+console.log('- Codex wrapper skill install check passed');
 console.log(`- delegate targets resolve against package + ${UPSTREAM_ROOT}`);
 console.log('- keyword invocation checks passed');

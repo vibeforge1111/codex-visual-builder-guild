@@ -10,6 +10,19 @@
 - `assets/use-it-two-ways.png`
 - `assets/tested-before-ship.png`
 
+## Documentation
+
+- `README.md`
+- `PROMPTS.md`
+- `FREE-DROP.md`
+- `MANIFEST.md`
+
+## Codex Skill
+
+- `codex/codex-visual-builder-guild/SKILL.md`
+- `codex/codex-visual-builder-guild/agents/openai.yaml`
+- `tools/install-codex-skill.cjs`
+
 ## Bundle
 
 - `bundles/codex-visual-builder-loop.yaml`
