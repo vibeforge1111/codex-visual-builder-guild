@@ -1,56 +1,51 @@
-# spark-codex-design-team
+# codex-visual-builder-guild
 
-H70-C+ Spark Skill Graphs for Codex Desktop visual product building.
+![Codex Visual Builder Guild hero](assets/hero-guild-banner.png)
+
+A free H70-C+ Spark Skill Graphs guild for Codex Desktop visual product building.
+
+Install this when you want Codex to stop guessing at UI from code alone and start working like a visual product team: generate assets, run the app, capture screenshots, inspect with vision, delegate to specialists, revise, compare, and preserve the winning design rules.
 
 Free community drop. MIT licensed. Fork it, remix it, copy the skills into your own Spark graph, or use the YAML directly in your own agent runtime.
-
-This pack turns the imagegen plus vision workflow into a disciplined specialist team:
 
 ```text
 prompt -> build -> run -> screenshot -> vision review -> specialist delegation -> revise -> compare -> extract rules
 ```
 
-Imagegen creates source material. Vision judges the rendered product. The skills in this repo keep that loop grounded in screenshots, responsive states, interaction states, accessibility, brand consistency, design tokens, and regression safety.
+## What You Get
 
-## What's Included
+![What you get](assets/what-you-get.png)
 
-- `design/*.yaml`: 16 H70-C+ design skills
-- `bundles/codex-visual-builder-loop.yaml`: recommended load order for the team
-- `tools/validate-h70-cplus.js`: H70-C+ structure validator
+- 16 H70-C+ design skills for Codex visual builder loops.
+- A ready bundle load order for Spark Skill Graphs.
+- Explicit `delegates_version: 2` contracts so specialists know what context to pass and what to return.
+- Practical coverage for screenshots, responsive states, interaction states, imagegen assets, accessibility, brand consistency, design tokens, and visual regressions.
+- Standalone YAML files that can be used outside Spark.
+- Validation and smoke tests so people can install with confidence.
 
-## Core Team
+## How It Works
 
-- `visual-loop-qa`: router and visual QA orchestrator
-- `imagegen-asset-director`: UI-ready generated asset direction
-- `responsive-vision-auditor`: viewport truth across mobile, tablet, desktop, and wide screens
-- `interaction-state-inspector`: hover, focus, modal, dropdown, loading, error, and keyboard states
-- `brand-consistency-enforcer`: cross-screen product language consistency
-- `art-bible-extractor`: screenshot-derived visual rules
-- `design-token-surgeon`: durable tokens and component contracts
-- `screenshot-regression-guard`: before/after visual baselines
-- `real-content-layout-fuzzer`: ugly real data stress states
-- `visual-accessibility-sentinel`: contrast, focus, tap target, colorblind, and motion safety
+![How it works](assets/how-it-works.png)
 
-## Optional Specialists
+Imagegen creates source material. Vision judges the rendered product. The guild turns that pair into a repeatable visual loop:
 
-- `ab-visual-lab`
-- `hero-image-cinematographer`
-- `saas-dashboard-operator`
-- `game-ui-polish`
-- `motion-and-feedback-director`
-- `asset-provenance-librarian`
+1. Build or modify the UI.
+2. Run it locally.
+3. Capture desktop and mobile screenshots.
+4. Inspect layout, hierarchy, contrast, copy fit, responsive behavior, and interaction states with vision.
+5. Delegate specific failure classes to the right specialist.
+6. Fix, recapture, compare, and keep the winning rules.
 
-## How The Team Communicates
+## Delegation Map
 
-The skills communicate through H70-C+ `delegates_version: 2` contracts. Each delegate edge says:
+![Delegation map](assets/delegation-map.png)
 
-- `skill`: which specialist should take the next slice of work
-- `when`: the trigger condition for handing off
-- `pass_context`: what the current skill must send forward
-- `expect_back`: what the delegated skill must return
-- `sla`: whether the handoff is expected to be synchronous or async
+The guild is hub-and-specialist by design:
 
-The core routing model is hub-and-specialist:
+- `visual-loop-qa` owns orchestration and final visual judgment.
+- Specialists own narrow failure classes.
+- Every handoff carries `pass_context`, `expect_back`, and `sla`.
+- Winners become art bibles, design tokens, or screenshot baselines so taste does not evaporate.
 
 ```mermaid
 flowchart TD
@@ -72,38 +67,49 @@ flowchart TD
   A11y --> State
 ```
 
-`visual-loop-qa` owns orchestration and final visual judgment. It routes narrow problems to specialists, then brings their findings back into the screenshot loop. This prevents every skill from trying to own the whole design decision.
+## Use It Two Ways
 
-## Standalone Usage
+![Use it two ways](assets/use-it-two-ways.png)
 
-Yes, the skills can be used standalone.
+**Standalone YAML**: load any file in `design/*.yaml` directly into an agent, prompt system, CLI tool, or custom runtime. Each skill is self-contained: identity, responsibilities, disasters, anti-patterns, production patterns, testing, decisions, recovery, examples, gotchas, and delegation contracts all live in the YAML.
 
-You can load any file in `design/*.yaml` directly into an agent, prompt system, CLI tool, or custom runtime. The YAML is self-contained: identity, responsibilities, disasters, anti-patterns, production patterns, testing, decisions, recovery, examples, gotchas, and delegation contracts all live in each skill file.
+**Spark Skill Graphs**: copy the same files into a Spark Skill Graphs checkout. `design/*.yaml` become graph nodes, `delegates` become graph edges, and `bundles/codex-visual-builder-loop.yaml` becomes the recommended guild load order.
 
-For standalone use:
+## Tested Before Ship
 
-1. Start with `design/visual-loop-qa.yaml`.
-2. Read its `delegates` list to decide which specialist should handle the next failure class.
-3. Pass the fields listed in `pass_context`.
-4. Require the delegated skill to return the fields listed in `expect_back`.
-5. Use the bundle load order when you want the whole team.
+![Tested before ship](assets/tested-before-ship.png)
 
-No hosted service is required for standalone use.
+This package includes local checks for the parts that matter most:
 
-## Spark Skill Graphs Dashboard Usage
+- H70-C+ structure
+- required 12-section coverage
+- embedded disaster detection commands
+- embedded anti-pattern detection
+- delegate contract completeness
+- bundle load order resolution
+- common Codex visual-loop invocation cues
 
-Yes, the same repo can also work as a system inside Spark Skill Graphs and the dashboard.
+## Core Guild
 
-When copied into a Spark Skill Graphs checkout:
+- `visual-loop-qa`: router and visual QA orchestrator
+- `imagegen-asset-director`: UI-ready generated asset direction
+- `responsive-vision-auditor`: viewport truth across mobile, tablet, desktop, and wide screens
+- `interaction-state-inspector`: hover, focus, modal, dropdown, loading, error, and keyboard states
+- `brand-consistency-enforcer`: cross-screen product language consistency
+- `art-bible-extractor`: screenshot-derived visual rules
+- `design-token-surgeon`: durable tokens and component contracts
+- `screenshot-regression-guard`: before/after visual baselines
+- `real-content-layout-fuzzer`: ugly real data stress states
+- `visual-accessibility-sentinel`: contrast, focus, tap target, colorblind, and motion safety
 
-- `design/*.yaml` become graph nodes.
-- `delegates` become graph edges.
-- `bundles/codex-visual-builder-loop.yaml` becomes the recommended team load order.
-- `visual-loop-qa` appears as the router node for Codex visual builder work.
-- Spark recommendation can select either a single specialist or the full bundle.
-- The dashboard/visualizer can show the loaded skills and their delegate relationships as one system.
+## Optional Specialists
 
-In other words: standalone mode reads the YAML directly; Spark mode indexes the same YAML into a navigable skill graph.
+- `ab-visual-lab`
+- `hero-image-cinematographer`
+- `saas-dashboard-operator`
+- `game-ui-polish`
+- `motion-and-feedback-director`
+- `asset-provenance-librarian`
 
 ## Install Into Spark Skill Graphs
 
@@ -122,7 +128,7 @@ $env:SPAWNER_H70_SKILLS_DIR='C:\Users\USER\Desktop\spark-skill-graphs\design'
 node C:\Users\USER\Desktop\spark-skill-graphs\tools\validate-h70-cplus.js
 ```
 
-If you use the Spark MCP server or dashboard, restart/re-index it after copying the files. Already-running MCP/dashboard processes may keep an older in-memory skill index and return `Skill not found` until they are restarted.
+If you use the Spark MCP server or dashboard, restart/re-index it after copying the files. Already-running MCP/dashboard processes may keep an older in-memory skill index and return `Skill not found` until restarted.
 
 Recommended Spark-side checks:
 
@@ -157,11 +163,11 @@ The smoke test checks that:
 - `visual-loop-qa` contains the practical Codex loop cues: run, screenshot, vision, delegate, recapture, before/after
 - keyword invocation routes common tasks to the expected specialists
 
-## Design Principle
+## Infographic Set
 
-The pack is intentionally hub-and-specialist:
-
-- `visual-loop-qa` owns orchestration and final visual judgment.
-- Specialists own narrow failure classes.
-- `delegates_version: 2` makes every handoff carry context, expected output, and timing.
-- Winning screens get converted into art bibles, tokens, or screenshot baselines so taste does not evaporate.
+- `assets/hero-guild-banner.png`: X and README hero
+- `assets/what-you-get.png`: install value
+- `assets/how-it-works.png`: visual builder loop
+- `assets/delegation-map.png`: specialist routing
+- `assets/use-it-two-ways.png`: standalone plus Spark dashboard usage
+- `assets/tested-before-ship.png`: validation and trust

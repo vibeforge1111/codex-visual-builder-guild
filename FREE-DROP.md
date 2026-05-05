@@ -1,6 +1,6 @@
 # Free Drop
 
-`spark-codex-design-team` is a free community drop for Codex Desktop, Spark Skill Graphs, and anyone building visual agent workflows with image generation plus vision feedback.
+`codex-visual-builder-guild` is a free community drop for Codex Desktop, Spark Skill Graphs, and anyone building visual agent workflows with image generation plus vision feedback.
 
 ## License
 

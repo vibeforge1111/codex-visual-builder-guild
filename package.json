@@ -1,8 +1,8 @@
 {
-  "name": "spark-codex-design-team",
+  "name": "codex-visual-builder-guild",
   "version": "1.0.1",
   "private": false,
-  "description": "H70-C+ Spark Skill Graphs for Codex Desktop visual builder loops with imagegen and vision.",
+  "description": "A free H70-C+ Spark Skill Graphs guild for Codex visual builder loops with imagegen and vision.",
   "type": "commonjs",
   "scripts": {
     "validate": "node tools/validate-h70-cplus.js",

@@ -1,5 +1,14 @@
 # Manifest
 
+## Visual Assets
+
+- `assets/hero-guild-banner.png`
+- `assets/what-you-get.png`
+- `assets/how-it-works.png`
+- `assets/delegation-map.png`
+- `assets/use-it-two-ways.png`
+- `assets/tested-before-ship.png`
+
 ## Bundle
 
 - `bundles/codex-visual-builder-loop.yaml`
