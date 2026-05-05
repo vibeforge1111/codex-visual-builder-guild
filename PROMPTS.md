@@ -4,6 +4,12 @@ Copy these into Codex Desktop when you want the guild to do specific visual work
 
 If you installed the native Codex skill with `npm run install:codex`, start prompts with `Use codex-visual-builder-guild`. If you are using the raw H70-C+ YAML in Spark, the specialist IDs still map to the same skills.
 
+## Shortest Useful Prompt
+
+```text
+Use codex-visual-builder-guild on this app. Run it, screenshot desktop and mobile, fix the single highest-impact visual issue, then show before/after screenshot paths and what changed.
+```
+
 ## Install Then Invoke
 
 ```powershell

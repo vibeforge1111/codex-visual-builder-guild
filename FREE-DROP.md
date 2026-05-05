@@ -2,6 +2,14 @@
 
 `codex-visual-builder-guild` is a free community drop for Codex Desktop, Spark Skill Graphs, and anyone building visual agent workflows with image generation plus vision feedback.
 
+## Public Drop Promise
+
+- Understand it in 30 seconds: Codex looks at real screenshots before judging UI quality.
+- Install it in 2 minutes: `npm run install:codex` installs and verifies the native Codex skill.
+- Get value in 5 minutes: paste the first-win prompt, fix one visible issue, and get before/after screenshot paths.
+
+Start with [`QUICKSTART.md`](QUICKSTART.md) if you are coming from X.
+
 ## License
 
 MIT. Use it commercially, privately, publicly, in forks, in demos, in agent runtimes, in your own Spark graph, or as raw YAML.

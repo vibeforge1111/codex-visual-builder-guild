@@ -24,6 +24,29 @@ build -> run -> screenshot -> vision review -> delegate -> fix -> compare -> kee
 7. Re-screenshot and compare before/after.
 8. Summarize what changed and any reusable design rules.
 
+## Minimum Useful Pass
+
+When the user is new, rushed, or coming from the public repo, do not invoke the whole guild by default. First deliver one visible win:
+
+1. Run the app.
+2. Capture desktop and mobile screenshots.
+3. Name the top 3 visible issues.
+4. Fix the highest-impact issue.
+5. Capture after screenshots.
+6. Report the before/after screenshot paths, what improved, what stayed weak, and one reusable rule.
+
+Only route to a specialist when that lens changes the next action.
+
+## Specialist Output Contract
+
+Every specialist lens should return concrete evidence, not ceremony:
+
+- `problem`: the visible failure it is solving.
+- `evidence`: screenshot, viewport, state, or content case that proves the problem.
+- `fix`: the smallest change that should improve the rendered UI.
+- `verification`: the screenshot, state, or rule that proves the fix worked.
+- `residual risk`: what still might fail.
+
 ## Specialist Routing
 
 Use these specialist lenses:
@@ -48,9 +71,11 @@ Use these specialist lenses:
 ## Operating Rules
 
 - Prefer rendered evidence over taste arguments.
+- Start with the minimum useful pass unless the user explicitly asks for the full guild.
 - Use imagegen for real assets, not decorative filler.
 - Use vision to judge the integrated UI, not just the source image.
 - Fix the highest-impact visual issue first.
+- Do not invoke specialist lenses just to name them; each lens must produce a concrete artifact.
 - Keep edits compatible with the existing codebase and design system.
 - Do not stop at the first draft when screenshots show obvious visual problems.
 - Preserve screenshots, prompts, or notes when they are useful for future design consistency.

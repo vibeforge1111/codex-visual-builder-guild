@@ -57,4 +57,4 @@ console.log("Restart Codex Desktop or start a new Codex session, then invoke it 
 console.log("  Use codex-visual-builder-guild to run the visual builder loop on this app.");
 console.log("");
 console.log("First 5-minute win prompt:");
-console.log("  Use codex-visual-builder-guild on this app. Run it locally, take desktop and mobile screenshots, inspect with vision, fix the highest-impact visual issue, then capture after screenshots.");
+console.log("  Use codex-visual-builder-guild on this app. Run it, screenshot desktop and mobile, fix the single highest-impact visual issue, then show before/after screenshot paths and what changed.");

@@ -13,6 +13,7 @@
 ## Documentation
 
 - `README.md`
+- `QUICKSTART.md`
 - `PROMPTS.md`
 - `FREE-DROP.md`
 - `MANIFEST.md`
@@ -20,6 +21,7 @@
 ## Example App
 
 - `examples/first-run-demo/README.md`
+- `examples/first-run-demo/PROOF_PACKET.md`
 - `examples/first-run-demo/index.html`
 - `examples/first-run-demo/styles.css`
 

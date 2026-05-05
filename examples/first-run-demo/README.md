@@ -35,3 +35,5 @@ End with a plain-English before/after summary and the screenshot paths.
 - Mobile should be checked with desktop and mobile screenshots, not guessed from CSS.
 
 The goal is not to make this demo fancy. The goal is to show the screenshot loop catching real, intentional visual problems quickly.
+
+See [`PROOF_PACKET.md`](PROOF_PACKET.md) for what a useful first run should return.

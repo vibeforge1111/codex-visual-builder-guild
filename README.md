@@ -1,5 +1,8 @@
 # codex-visual-builder-guild
 
+[![CI](https://github.com/vibeforge1111/codex-visual-builder-guild/actions/workflows/ci.yml/badge.svg)](https://github.com/vibeforge1111/codex-visual-builder-guild/actions/workflows/ci.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-gold.svg)](LICENSE)
+
 ![Codex Visual Builder Guild hero](assets/hero-guild-banner.png)
 
 Welcome to the **Codex Visual Builder Guild**: a free, open-source guild of H70-C+ Spark Skill Graphs that helps Codex build better-looking apps with imagegen, screenshots, vision review, and specialist delegation.
@@ -7,6 +10,23 @@ Welcome to the **Codex Visual Builder Guild**: a free, open-source guild of H70-
 Think of it like hiring a tiny fantasy design studio for your Codex Desktop session. One specialist checks spacing. One makes assets. One stress-tests mobile. One guards accessibility. One turns the winning design into reusable rules. Together, they help Codex stop guessing and start looking.
 
 Free community drop. MIT licensed. Fork it, remix it, install it into Spark Skill Graphs, or use the YAML skills directly in your own agent runtime.
+
+## 30 Seconds, 2 Minutes, 5 Minutes
+
+**In 30 seconds:** this makes Codex look at the real UI before it claims the design is good.
+
+**In 2 minutes:** install one Codex skill:
+
+```powershell
+git clone https://github.com/vibeforge1111/codex-visual-builder-guild.git
+cd codex-visual-builder-guild
+npm install
+npm run install:codex
+```
+
+**In 5 minutes:** restart Codex Desktop, open your app, and paste the [first-win prompt](#your-first-5-minute-win). Codex should return before/after screenshots, the biggest visual issue, the fix, and what still needs work.
+
+For the shortest path, read [`QUICKSTART.md`](QUICKSTART.md).
 
 ## If You Are New, Choose This Path
 
@@ -64,6 +84,8 @@ Expected result:
 - The final answer includes what changed, what stayed weak, and where the screenshots live.
 
 Want a disposable target? Open [`examples/first-run-demo`](examples/first-run-demo) and ask the guild to improve it.
+
+See the shape of a successful result: [`examples/first-run-demo/PROOF_PACKET.md`](examples/first-run-demo/PROOF_PACKET.md).
 
 ## The 10-Second Pitch
 
@@ -249,6 +271,7 @@ Usage audit passed
 ## What Is Inside
 
 - `design/*.yaml`: 16 H70-C+ design skills
+- `QUICKSTART.md`: the 30-second, 2-minute, 5-minute path for new users
 - `codex/codex-visual-builder-guild/SKILL.md`: native Codex wrapper skill
 - `bundles/codex-visual-builder-loop.yaml`: recommended guild load order
 - `tools/validate-h70-cplus.js`: H70-C+ structure validator
