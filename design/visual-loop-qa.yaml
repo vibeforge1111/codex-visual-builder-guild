@@ -299,6 +299,8 @@ examples:
       done_when:
         - desktop screenshot has clear hierarchy
         - mobile screenshot has no clipped text or overlap
+        - adjacent cards and sections have visible breathing room
+        - dashboards avoid box soup and text blobs when a visual map, timeline, chart, or status strip would scan faster
         - interactive states keep visible affordance
         - generated assets fit crop and brand
         - reusable rules or baselines are recorded

@@ -130,6 +130,17 @@ Do not hand off just to use another specialist. Stop when the next lens would no
 
 If you cannot inspect the screenshot with vision, say `vision handoff blocked` and do not claim a specialist handoff happened.
 
+## Visual Ruthlessness Checklist
+
+Before accepting any after screenshot, actively look for these failure modes and name them in `vision observations`:
+
+- **Box soup**: too many cards, panels, bordered regions, or text blocks competing at once.
+- **Touching cards**: adjacent boxes with no visible breathing room, or section gaps that visually collapse.
+- **Text-first dashboarding**: the screen explains everything with paragraphs when a diagram, status strip, timeline, chart, or spatial grouping would scan faster.
+- **False improvement**: the product idea got clearer, but the rendered screen became heavier, more crowded, or harder to scan.
+
+Hard rule: if a user can point to a screenshot and say "these boxes look weird" or "this is just blobs of text," the guild run was not strict enough. Fix the visual structure, then add the reusable rule that would have caught it.
+
 ## Run Report Contract
 
 Every guild run must end with a compact report that proves the visual decision loop happened:
