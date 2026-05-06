@@ -3,10 +3,12 @@ name: Codex visual builder loop
 task_pattern: build or polish a visual product surface with Codex Desktop using imagegen, vision screenshots, responsive QA, interaction testing, and reusable design rules
 required_skills:
   - visual-loop-qa
+  - user-flow-friction-auditor
   - imagegen-asset-director
   - responsive-vision-auditor
   - interaction-state-inspector
   - brand-consistency-enforcer
+  - component-system-steward
   - art-bible-extractor
   - design-token-surgeon
   - screenshot-regression-guard
@@ -21,12 +23,14 @@ optional_skills:
   - asset-provenance-librarian
 load_order:
   - visual-loop-qa                  # route the visual problem and define the screenshot matrix
+  - user-flow-friction-auditor       # prove the user can understand and complete the flow
   - imagegen-asset-director          # create only the assets the rendered product needs
   - responsive-vision-auditor        # inspect mobile, tablet, desktop, and wide layouts early
   - interaction-state-inspector      # click through hover, focus, modal, loading, and error states
   - real-content-layout-fuzzer       # stress the layout with long, empty, translated, and ugly content
   - visual-accessibility-sentinel    # catch contrast, color-only, focus, tap-target, and motion failures
   - brand-consistency-enforcer       # make the new surface feel native to the existing product
+  - component-system-steward         # enforce or create the art-bible/component-system contract
   - art-bible-extractor              # capture winning visual rules from screenshots
   - design-token-surgeon             # turn repeated visual decisions into tokens and component contracts
   - screenshot-regression-guard      # preserve before/after baselines so future loops do not backslide

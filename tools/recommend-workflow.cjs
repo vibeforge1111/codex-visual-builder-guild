@@ -18,6 +18,14 @@ const LANES = [
     evidence: ["first five-second command answer", "scannable metrics", "real-content stress case"]
   },
   {
+    id: "user-flow",
+    title: "User flow and first-time clarity",
+    triggers: ["flow", "user", "onboarding", "confusing", "overwhelming", "friction", "journey", "first-time", "clarity", "easy"],
+    lenses: ["visual-loop-qa", "user-flow-friction-auditor", "interaction-state-inspector"],
+    commands: ["npm run create-proof-packet -- --cwd ../my-app"],
+    evidence: ["five-second flow read", "clear next action", "one click-through state", "recovery/back/save path"]
+  },
+  {
     id: "mobile",
     title: "Mobile and responsive confidence",
     triggers: ["mobile", "responsive", "tablet", "viewport", "overflow", "wrapping", "tap"],
@@ -32,6 +40,14 @@ const LANES = [
     lenses: ["visual-loop-qa", "interaction-state-inspector"],
     commands: ["npm run create-proof-packet -- --cwd ../my-app"],
     evidence: ["state matrix", "important non-default screenshots", "accepted state changes"]
+  },
+  {
+    id: "component-system",
+    title: "Art bible and component-system stewardship",
+    triggers: ["component", "system", "design-system", "art", "bible", "tokens", "styleguide", "style", "drift", "contract"],
+    lenses: ["visual-loop-qa", "component-system-steward", "art-bible-extractor", "design-token-surgeon"],
+    commands: ["npm run create-proof-packet -- --cwd ../my-app"],
+    evidence: ["found or created system reference", "component contract", "token/art-bible compliance", "rendered screenshot proof"]
   },
   {
     id: "accessibility",
@@ -123,7 +139,7 @@ function rankLanes(need) {
     })
     .filter(lane => lane.score > 0)
     .sort((left, right) => right.score - left.score)
-    .slice(0, 3);
+    .slice(0, 5);
 }
 
 function main() {

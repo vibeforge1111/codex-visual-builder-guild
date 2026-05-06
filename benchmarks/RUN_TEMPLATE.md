@@ -36,7 +36,7 @@ Observed result:
 Prompt:
 
 ```text
-Use codex-visual-builder-guild on this app. Run it, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect the actual screenshots with Codex App vision, record concrete vision observations by viewport, fix the single highest-impact visual issue, use at most 1-2 specialist lenses only if screenshots prove they are needed, then finish with the Run Report Contract.
+Use codex-visual-builder-guild on this app. Run it, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect the actual screenshots with Codex App vision, record concrete vision observations by viewport, check whether the user flow has a clear next action and whether reusable patterns follow the art bible/component system, fix the single highest-impact visual or flow issue, use at most 1-2 specialist lenses only if screenshots prove they are needed, then finish with the Run Report Contract.
 ```
 
 Proof packet:

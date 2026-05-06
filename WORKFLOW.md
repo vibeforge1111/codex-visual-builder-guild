@@ -26,6 +26,7 @@ Start with `visual-loop-qa`, then route only when the screenshot proves a specif
 | Screenshot evidence | Lens to use | Why |
 | --- | --- | --- |
 | Mobile, tablet, or fluid-width crop, wrapping, hidden controls, cramped taps, unreadable columns, or horizontal overflow | `responsive-vision-auditor` | The issue depends on viewport behavior. |
+| Screen looks polished but the next action, first-time path, recovery, or amount of information feels confusing or overwhelming | `user-flow-friction-auditor` | The issue is product comprehension, not visual decoration. |
 | Dashboard is pretty but not operationally clear | `saas-dashboard-operator` | The issue is information architecture and repeated use. |
 | Hover, focus, modal, loading, disabled, or error states are unknown | `interaction-state-inspector` | The issue is a state, not a static screen. |
 | Contrast, focus visibility, target size, or color-only meaning is risky | `visual-accessibility-sentinel` | The issue affects whether people can use the UI. |
@@ -33,6 +34,7 @@ Start with `visual-loop-qa`, then route only when the screenshot proves a specif
 | A generated or external asset is central to the UI | `imagegen-asset-director` | The issue needs an asset judged in context. |
 | A visual change should be preserved as a baseline | `screenshot-regression-guard` | The issue needs before/after evidence for future runs. |
 | Repeated styling choices are drifting across screens | `brand-consistency-enforcer` or `design-token-surgeon` | The issue is system consistency. |
+| A flow fix creates a reusable pattern, or no art bible/component system exists to judge against | `component-system-steward` | The issue needs a local source of truth, not another one-off style. |
 | Multiple plausible directions exist | `ab-visual-lab` | The issue needs compared variants, not taste debate. |
 
 If no row applies, do not invoke a specialist. Say `lens used: none - minimum useful pass was enough`.
@@ -50,9 +52,10 @@ npm run recommend-workflow -- --need "dashboard mobile regression"
 | Need | Default output | Extra proof when it matters |
 | --- | --- | --- |
 | first public demo polish | before/after desktop, tablet, mobile, and fluid-width screenshots | proof packet checked with `npm run check-proof-packet` |
+| first-time user flow | five-second flow read, one click-through state, clear next action and recovery | `user-flow-friction-auditor` plus interaction-state check |
 | SaaS/admin/dashboard work | command surface, scannable metrics, clear next action | `saas-dashboard-operator` plus real-content stress |
 | mobile reliability | mobile, tablet, and fluid-width screenshots before/after plus tap-target review | wide matrix if layout has breakpoints |
-| component library work | state matrix for component states | Storybook/Chromatic visual review |
+| component library or art-bible work | found/created system reference plus state matrix for component states | `component-system-steward`, Storybook/Chromatic visual review |
 | accessibility confidence | contrast/focus/tap/color review | axe check plus manual focus screenshot |
 | generated visual assets | asset in the real UI, not isolated | asset provenance notes and replacement guidance |
 | messy production data | long labels, empty states, large numbers | `real-content-layout-fuzzer` cases preserved |

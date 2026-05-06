@@ -6,7 +6,7 @@ This is the shortest path from "I saw the guild on X" to "Codex improved a real 
 
 Codex Visual Builder Guild makes Codex stop guessing from source code. It runs your app, captures desktop, tablet, mobile, and awkward in-between screenshots, uses Codex App vision to inspect what actually rendered, fixes the biggest visual issue, and compares before/after screenshots.
 
-Use it when an AI-made UI is "almost there" but still has weak hierarchy, mobile breakage, contrast problems, awkward spacing, missing states, or unclear visual proof.
+Use it when an AI-made UI is "almost there" but still has weak hierarchy, mobile breakage, contrast problems, awkward spacing, missing states, confusing user flow, overwhelming setup, component drift, or unclear visual proof.
 
 ## 2 Minutes: Install It
 
@@ -96,11 +96,13 @@ npm run scaffold:playwright-visual -- --cwd ../my-app --url http://127.0.0.1:517
 Do not summon the whole guild by default. Start with the minimum useful pass, then add a specialist only when the screenshot proves a specific failure:
 
 - mobile or tablet breakage: `responsive-vision-auditor`
+- unclear next action, confusing first-run path, or overwhelm: `user-flow-friction-auditor`
 - dashboard is pretty but not operationally useful: `saas-dashboard-operator`
 - hover, focus, modal, loading, empty, or error states: `interaction-state-inspector`
 - contrast, focus, target size, or color-only meaning: `visual-accessibility-sentinel`
 - ugly real data breaks layout: `real-content-layout-fuzzer`
 - generated assets matter to the UI: `imagegen-asset-director`
+- art bible, design tokens, or component-system compliance matters: `component-system-steward`
 - baseline or regression proof is needed: `screenshot-regression-guard`
 
 If no specialist changes the next action, the correct answer is `lens used: none`.

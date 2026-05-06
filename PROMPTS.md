@@ -7,7 +7,7 @@ If you installed the native Codex skill with `npm run install:codex`, start prom
 ## Shortest Useful Prompt
 
 ```text
-Use codex-visual-builder-guild on this app. Run it, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect the screenshots with Codex App vision, record concrete vision observations by viewport, fix the single highest-impact visual issue, use at most 1-2 specialist lenses only if screenshots prove they are needed, use vision-backed lens handoff packets if more than one specialist is useful, then finish with the Run Report Contract: goal, viewport matrix, state matrix, screenshots inspected, vision observations, top issues, chosen issue, lens used, handoff log, exact fix, verification, accepted visual change, still weak, reusable rule, automation notes.
+Use codex-visual-builder-guild on this app. Run it, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect the screenshots with Codex App vision, record concrete vision observations by viewport, check whether the user flow has a clear next action and whether reusable patterns follow the art bible/component system, fix the single highest-impact visual issue or flow issue, use at most 1-2 specialist lenses only if screenshots prove they are needed, use vision-backed lens handoff packets if more than one specialist is useful, then finish with the Run Report Contract: goal, viewport matrix, state matrix, screenshots inspected, vision observations, top issues, chosen issue, lens used, handoff log, exact fix, verification, accepted visual change, still weak, reusable rule, automation notes.
 ```
 
 If more than one lens is useful, include a vision-backed handoff log:
@@ -123,7 +123,7 @@ Use codex-visual-builder-guild as a visual product team.
 
 Goal: [describe what we are building].
 
-Run the app locally, take screenshots on desktop, tablet, mobile, and an awkward in-between width, inspect the rendered UI with Codex App vision, and delegate issues to the right specialists. Use at most 1-2 specialist lenses unless screenshot evidence proves more are needed. Use imagegen when custom assets would improve the product, then integrate and screenshot those assets in context. Focus on hierarchy, spacing, contrast, text fit, responsive layout, interaction states, accessibility, and visual consistency.
+Run the app locally, take screenshots on desktop, tablet, mobile, and an awkward in-between width, inspect the rendered UI with Codex App vision, and delegate issues to the right specialists. Use at most 1-2 specialist lenses unless screenshot evidence proves more are needed. Use imagegen when custom assets would improve the product, then integrate and screenshot those assets in context. Focus on hierarchy, spacing, contrast, text fit, responsive layout, interaction states, accessibility, user-flow clarity, overwhelm, and component-system consistency.
 
 Do not stop at the first draft. Iterate until the UI feels polished, compare before/after screenshots, and summarize the final design rules plus any automation notes.
 ```
@@ -133,7 +133,7 @@ Do not stop at the first draft. Iterate until the UI feels polished, compare bef
 ```text
 Use codex-visual-builder-guild. Run this app as a Codex visual builder loop.
 
-Build the smallest working version, open it locally, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect with Codex App vision, and fix the highest-impact visual issues first. Delegate to specialist skills when the issue is about assets, responsiveness, accessibility, interaction states, design tokens, or screenshot regression.
+Build the smallest working version, open it locally, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect with Codex App vision, and fix the highest-impact visual or flow issues first. Delegate to specialist skills when the issue is about user flow, assets, responsiveness, accessibility, interaction states, art bible/component systems, design tokens, or screenshot regression.
 
 Finish only after the before/after screenshots show a clearly more polished product.
 ```
@@ -144,6 +144,14 @@ Finish only after the before/after screenshots show a clearly more polished prod
 Use codex-visual-builder-guild with the visual-loop-qa lens.
 
 Run the app, capture screenshots on desktop, tablet, mobile, and one awkward in-between width, inspect the rendered UI with Codex App vision, identify the highest-impact visual issues, delegate each issue to the right specialist lens, apply fixes, and compare before/after screenshots before finishing.
+```
+
+## User Flow Friction
+
+```text
+Use codex-visual-builder-guild with the user-flow-friction-auditor lens.
+
+Inspect this rendered product flow like a first-time user. Use screenshots and at least one click-through state to answer: where am I, what should I do next, what happens after I do it, how do I recover, and what feels overwhelming? Fix the single highest-friction part of the flow, then re-screenshot desktop, tablet, mobile, and one awkward in-between width.
 ```
 
 ## Imagegen Asset Direction
@@ -176,6 +184,14 @@ Click through the main user flows. Inspect hover, focus, active, disabled, loadi
 Use codex-visual-builder-guild with the brand-consistency-enforcer lens.
 
 Compare the main screens and make them feel like one product. Look for mismatched spacing, button styles, colors, typography, icon style, card treatment, tone, and visual density. Fix drift and summarize the product's visual rules.
+```
+
+## Component System Stewardship
+
+```text
+Use codex-visual-builder-guild with the component-system-steward lens.
+
+Find the project's art bible, design tokens, theme files, and nearest reusable components before changing the UI. If a system exists, make the new work comply with it. If no system exists, create the smallest useful art-bible/component contract from the accepted screenshots. Verify the result in rendered screenshots and report the system reference used or created.
 ```
 
 ## Art Bible Extraction

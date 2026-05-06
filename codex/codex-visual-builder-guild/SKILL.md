@@ -63,6 +63,7 @@ Default to `visual-loop-qa` plus at most 1-2 specialist lenses. Route by rendere
 | Evidence from screenshot or interaction | Lens |
 | --- | --- |
 | mobile/tablet/fluid-width crop, hidden controls, cramped taps, broken wrapping, unreadable columns, accidental horizontal overflow | `responsive-vision-auditor` |
+| screen looks polished but the user's path, next action, or recovery is unclear; surface feels overwhelming | `user-flow-friction-auditor` |
 | dashboard is pretty but not useful for repeated operation | `saas-dashboard-operator` |
 | setup guidance crowds the main work canvas, empty states feel like product setup, first-run path is unclear, or onboarding does not explain readiness | `saas-dashboard-operator` + `interaction-state-inspector` |
 | hover, focus, modal, loading, empty, disabled, or error state is unknown | `interaction-state-inspector` |
@@ -71,6 +72,7 @@ Default to `visual-loop-qa` plus at most 1-2 specialist lenses. Route by rendere
 | generated/external asset quality matters to the UI | `imagegen-asset-director` |
 | visual change should become a baseline | `screenshot-regression-guard` |
 | repeated styling choices are drifting | `brand-consistency-enforcer` or `design-token-surgeon` |
+| art bible, design tokens, or reusable component rules are missing, ignored, or contradicted by a new pattern | `component-system-steward` |
 | multiple strong visual directions exist | `ab-visual-lab` |
 
 If no row applies, use `lens used: none - minimum useful pass was enough`.
@@ -113,9 +115,14 @@ next vision check: the exact screenshot, interaction state, or content case the 
 Default handoffs:
 
 - `responsive-vision-auditor` -> `interaction-state-inspector` when a breakpoint fix could affect taps, focus, modal behavior, or hidden panels.
+- `visual-loop-qa` -> `user-flow-friction-auditor` when screenshots show unclear next action, overloaded choices, confusing first-run path, or missing recovery.
+- `user-flow-friction-auditor` -> `interaction-state-inspector` when reducing friction changes buttons, steppers, modals, save/cancel behavior, or navigation.
+- `user-flow-friction-auditor` -> `component-system-steward` when a successful flow fix creates a reusable wizard, setup guide, command surface, checklist, or empty-state pattern.
 - `interaction-state-inspector` -> `visual-accessibility-sentinel` when the fix changes focus rings, disabled states, contrast, color-only meaning, or tap target size.
 - `real-content-layout-fuzzer` -> `responsive-vision-auditor` when ugly content changes wrapping, grid width, or scrolling.
 - `saas-dashboard-operator` -> `interaction-state-inspector` when a workflow change adds or moves actions, setup steps, empty states, or job/status cards.
+- `component-system-steward` -> `art-bible-extractor` when no art bible exists or accepted screenshots need reusable visual rules.
+- `component-system-steward` -> `design-token-surgeon` when repeated values should become tokens or component contracts.
 - any lens -> `screenshot-regression-guard` when the accepted visual change should become a reusable baseline or future guardrail.
 - any lens -> `brand-consistency-enforcer` when the fix introduces a new visual pattern that might drift from the existing product language.
 
@@ -161,10 +168,12 @@ Every specialist lens should return concrete evidence, not ceremony:
 Use these specialist lenses:
 
 - `visual-loop-qa`: orchestrate the full visual loop.
+- `user-flow-friction-auditor`: audit whether the target user can understand, start, complete, and recover from the intended product flow without overwhelm.
 - `imagegen-asset-director`: create UI-ready generated assets and judge them in context.
 - `responsive-vision-auditor`: verify mobile, tablet, desktop, wide, and awkward fluid-breakpoint layouts.
 - `interaction-state-inspector`: inspect hover, focus, modal, dropdown, loading, empty, error, and keyboard states.
 - `brand-consistency-enforcer`: keep screens visually coherent.
+- `component-system-steward`: find, enforce, or create the project's art bible, token, and component-system contracts.
 - `art-bible-extractor`: convert winning screenshots into reusable design rules.
 - `design-token-surgeon`: convert repeated visual choices into tokens or component contracts.
 - `screenshot-regression-guard`: preserve before/after screenshot evidence.
@@ -189,6 +198,8 @@ Use these specialist lenses:
 - Record vision observations before naming the chosen issue.
 - Use Codex App vision heavily: inspect before screenshots, after screenshots, and any state or breakpoint that a handoff depends on.
 - Fix the highest-impact visual issue first.
+- Before polishing a complex product surface, ask whether the rendered screen answers: where am I, what should I do next, what happens after I do it, and how do I recover?
+- If a visual fix creates a reusable pattern, check the project art bible/component system. If none exists, create the smallest practical rule from accepted screenshots instead of leaving future agents to infer the style.
 - If screenshot evidence shows setup guidance fighting the main task surface, move it into first-run onboarding or a reusable setup checklist instead of polishing the misplaced card.
 - When multiple lenses apply, write the vision-backed handoff packet before making the next fix so the next lens inherits what was seen rather than repeating the same review.
 - Do not invoke specialist lenses just to name them; each lens must produce a concrete artifact.

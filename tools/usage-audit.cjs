@@ -195,8 +195,20 @@ function assertWorkflowRecommenderWorks() {
     encoding: "utf8",
     stdio: "pipe"
   });
+  const flowOutput = execFileSync(process.execPath, [WORKFLOW_RECOMMENDER, "--need", "confusing onboarding user flow"], {
+    cwd: ROOT,
+    encoding: "utf8",
+    stdio: "pipe"
+  });
+  const systemOutput = execFileSync(process.execPath, [WORKFLOW_RECOMMENDER, "--need", "component system art bible tokens"], {
+    cwd: ROOT,
+    encoding: "utf8",
+    stdio: "pipe"
+  });
   assert(output.includes("Recommended Visual Builder Guild workflow"), "workflow recommender should print a heading");
   assert(output.includes("SaaS/admin/dashboard operation"), "workflow recommender should route dashboard needs");
+  assert(flowOutput.includes("User flow and first-time clarity"), "workflow recommender should route user-flow needs");
+  assert(systemOutput.includes("Art bible and component-system stewardship"), "workflow recommender should route component-system needs");
   assert(output.includes("Mobile and responsive confidence"), "workflow recommender should route mobile needs");
   assert(output.includes("Regression-sensitive visual baseline"), "workflow recommender should route regression needs");
   assert(output.includes("tablet screenshot"), "workflow recommender should include tablet evidence");
@@ -224,7 +236,7 @@ const proofPacketTool = read(PROOF_PACKET_TOOL);
 const workflowRecommender = read(WORKFLOW_RECOMMENDER);
 const packageJson = JSON.parse(read(PACKAGE_JSON));
 
-assert(skills.length === 16, `expected 16 design skills, found ${skills.length}`);
+assert(skills.length === 18, `expected 18 design skills, found ${skills.length}`);
 assert(
   JSON.stringify(imagegenTaggedIds) === JSON.stringify(["asset-provenance-librarian", "imagegen-asset-director"]),
   `only asset-specific skills should carry the broad imagegen tag, got ${imagegenTaggedIds.join(", ")}`
@@ -257,6 +269,8 @@ for (const phrase of [
   "examples/first-run-demo",
   "PROOF_PACKET.md",
   "at most 1-2 specialist lenses",
+  "user-flow-friction-auditor",
+  "component-system-steward",
   "npm run recommend-workflow",
   "npm run create-proof-packet",
   "npm run check-proof-packet",
@@ -291,6 +305,8 @@ for (const phrase of [
   "5 Minutes: Paste This",
   "What Codex Must Report",
   "Lens Router",
+  "user-flow-friction-auditor",
+  "component-system-steward",
   "Viewport matrix:",
   "Screenshots inspected:",
   "Vision observations:",
@@ -306,6 +322,8 @@ for (const phrase of [
   "Lens Router",
   "Strong Proof Packet",
   "Workflow Needs Matrix",
+  "user-flow-friction-auditor",
+  "component-system-steward",
   "npm run recommend-workflow",
   "Automation Recipes",
   "npm run create-proof-packet",
@@ -469,10 +487,12 @@ assert(manifest.includes("examples/first-run-demo/PROOF_PACKET.md"), "MANIFEST s
 
 const routingQueries = [
   ["full visual QA loop screenshot vision delegate before after", "visual-loop-qa"],
+  ["first time user flow onboarding confusing overwhelming next action recovery", "user-flow-friction-auditor"],
   ["generate UI-ready imagegen assets product visuals", "imagegen-asset-director"],
   ["mobile tablet desktop responsive viewport overflow", "responsive-vision-auditor"],
   ["hover focus modal dropdown loading error interaction states", "interaction-state-inspector"],
   ["brand consistency typography palette spacing coherent product", "brand-consistency-enforcer"],
+  ["art bible component system design tokens reusable component contract drift", "component-system-steward"],
   ["extract art bible palette type spacing layout rules", "art-bible-extractor"],
   ["design tokens color type spacing radius component contracts", "design-token-surgeon"],
   ["screenshot regression before after baseline visual diff", "screenshot-regression-guard"],
@@ -504,12 +524,12 @@ if (failures > 0) {
 }
 
 console.log("Usage audit passed");
-console.log(`- specialist invocation coverage: ${skillIds.length}/16`);
+console.log(`- specialist invocation coverage: ${skillIds.length}/18`);
 console.log("- README install path verified");
 console.log("- PROMPTS specialist spellbook verified");
 console.log("- Codex wrapper trigger and metadata verified");
 console.log("- installer overwrite/idempotence verified in temp CODEX_HOME");
 console.log("- workflow recommender verified");
 console.log("- proof packet check, score, and Playwright visual scaffold tools verified");
-console.log("- keyword routing checks passed for all 16 specialists");
+console.log("- keyword routing checks passed for all 18 specialists");
 console.log("- beginner first-run, quickstart, proof packet, and demo app coverage verified");

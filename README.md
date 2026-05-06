@@ -61,7 +61,7 @@ Then say:
 Use codex-visual-builder-guild to run the visual builder loop on this app.
 ```
 
-That gives Codex one easy skill to invoke. The wrapper skill knows the full 16-specialist guild and can route work through the right specialist lens.
+That gives Codex one easy skill to invoke. The wrapper skill knows the full 18-specialist guild and can route work through the right specialist lens.
 
 The default is intentionally small: one visible win first, at most 1-2 specialist lenses, and screenshot proof before claims.
 
@@ -108,8 +108,9 @@ That means Codex can:
 - generate UI-ready image assets instead of waiting on placeholders
 - inspect real screenshots with Codex App vision instead of guessing from code
 - catch mobile, spacing, contrast, and interaction problems
+- check whether the user flow is understandable, low-friction, and not overwhelming
 - hand narrow problems to specialist skills
-- turn great screens into design rules, tokens, and regression baselines
+- turn great screens into art-bible rules, component contracts, tokens, and regression baselines
 - work standalone or inside Spark Skill Graphs
 
 ## Codex App Native Guardrails
@@ -132,7 +133,7 @@ Use codex-visual-builder-guild as a visual product team.
 
 Goal: [describe what we are building].
 
-Run the app locally, take screenshots on desktop, tablet, mobile, and an awkward in-between width, inspect the rendered UI with Codex App vision, and delegate issues to the right specialists. Use imagegen when custom assets would improve the product, then integrate and screenshot those assets in context. Focus on hierarchy, spacing, contrast, text fit, responsive layout, interaction states, accessibility, and visual consistency.
+Run the app locally, take screenshots on desktop, tablet, mobile, and an awkward in-between width, inspect the rendered UI with Codex App vision, and delegate issues to the right specialists. Use imagegen when custom assets would improve the product, then integrate and screenshot those assets in context. Focus on hierarchy, spacing, contrast, text fit, responsive layout, interaction states, accessibility, user-flow clarity, overwhelm, and component-system consistency.
 
 Do not stop at the first draft. Iterate until the UI feels polished, compare before/after screenshots, and summarize the final design rules.
 ```
@@ -188,10 +189,12 @@ Use the full guild prompt when you want the whole team. Use a specialist lens wh
 | If you want... | Summon... | Prompt starter |
 | --- | --- | --- |
 | a full visual QA loop | `visual-loop-qa` | "Use codex-visual-builder-guild with the visual-loop-qa lens. Run the app, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect with Codex App vision, delegate issues, fix, and compare before/after." |
+| easier product flows | `user-flow-friction-auditor` | "Use codex-visual-builder-guild with the user-flow-friction-auditor lens. Check whether a first-time user can tell where they are, what to do next, what happens after the action, and how to recover." |
 | custom UI art or product visuals | `imagegen-asset-director` | "Use codex-visual-builder-guild with the imagegen-asset-director lens. Generate UI-ready assets that match this product, then integrate and screenshot them in context." |
 | mobile/tablet/desktop confidence | `responsive-vision-auditor` | "Use codex-visual-builder-guild with the responsive-vision-auditor lens. Check the layout across mobile, tablet, desktop, wide, and awkward fluid-breakpoint screens." |
 | hover, focus, modal, loading, and error polish | `interaction-state-inspector` | "Use codex-visual-builder-guild with the interaction-state-inspector lens. Click through the main flows and inspect every important interaction state." |
 | consistent product taste | `brand-consistency-enforcer` | "Use codex-visual-builder-guild with the brand-consistency-enforcer lens. Compare screens and enforce one coherent visual language." |
+| art-bible/component-system compliance | `component-system-steward` | "Use codex-visual-builder-guild with the component-system-steward lens. Find the project's art bible, tokens, and component rules; enforce them or create the smallest missing system contract." |
 | a reusable style guide | `art-bible-extractor` | "Use codex-visual-builder-guild with the art-bible-extractor lens. Turn the best screenshots into an art bible." |
 | durable design tokens | `design-token-surgeon` | "Use codex-visual-builder-guild with the design-token-surgeon lens. Extract repeated visual decisions into tokens and component contracts." |
 | before/after safety | `screenshot-regression-guard` | "Use codex-visual-builder-guild with the screenshot-regression-guard lens. Capture baselines and compare screenshots after changes." |
@@ -213,10 +216,12 @@ Use the full guild prompt when you want the whole team. Use a specialist lens wh
 ```mermaid
 flowchart TD
   V["visual-loop-qa"]
+  V --> Flow["user-flow-friction-auditor"]
   V --> Asset["imagegen-asset-director"]
   V --> Resp["responsive-vision-auditor"]
   V --> State["interaction-state-inspector"]
   V --> Brand["brand-consistency-enforcer"]
+  V --> System["component-system-steward"]
   V --> Bible["art-bible-extractor"]
   V --> Tokens["design-token-surgeon"]
   V --> Regress["screenshot-regression-guard"]
@@ -224,7 +229,11 @@ flowchart TD
   V --> A11y["visual-accessibility-sentinel"]
 
   Asset --> Provenance["asset-provenance-librarian"]
+  Flow --> State
+  Flow --> System
   State --> Motion["motion-and-feedback-director"]
+  System --> Bible
+  System --> Tokens
   Bible --> Tokens
   Fuzz --> Resp
   A11y --> State
@@ -254,7 +263,7 @@ This keeps the guild from becoming ceremony. A responsive finding can hand off t
 
 ![Specialist wing](assets/specialist-wing.png)
 
-The delegation map shows the core routing. The specialist wing rounds out the full 16-skill roster with the skills that tend to activate after a visual issue becomes more specific.
+The delegation map shows the core routing. The specialist wing rounds out the full 18-skill roster with the skills that tend to activate after a visual issue becomes more specific.
 
 The point is simple: one big vague prompt like "make it look better" becomes a team of smaller, sharper jobs.
 
@@ -316,7 +325,7 @@ npm test
 Expected result:
 
 ```text
-Valid H70-C+: 16
+Valid H70-C+: 18
 Invalid: 0
 With warnings: 0
 Smoke test passed
@@ -325,7 +334,7 @@ Usage audit passed
 
 ## What Is Inside
 
-- `design/*.yaml`: 16 H70-C+ design skills
+- `design/*.yaml`: 18 H70-C+ design skills
 - `QUICKSTART.md`: the 30-second, 2-minute, 5-minute path for new users
 - `codex/codex-visual-builder-guild/SKILL.md`: native Codex wrapper skill
 - `bundles/codex-visual-builder-loop.yaml`: recommended guild load order

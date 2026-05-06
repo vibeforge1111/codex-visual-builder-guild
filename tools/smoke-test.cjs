@@ -107,10 +107,10 @@ const skills = loadSkills();
 const skillIds = new Set(skills.map(skill => skill.id));
 const bundle = readYaml(BUNDLE_FILE);
 
-assert(skills.length === 16, `expected 16 design skills, found ${skills.length}`);
+assert(skills.length === 18, `expected 18 design skills, found ${skills.length}`);
 assert(bundle.id === 'codex-visual-builder-loop', 'bundle id should be codex-visual-builder-loop');
 assert(bundle.load_order?.[0] === 'visual-loop-qa', 'visual-loop-qa must be first in bundle load_order');
-assert((bundle.required_skills || []).length === 10, 'bundle should have 10 required skills');
+assert((bundle.required_skills || []).length === 12, 'bundle should have 12 required skills');
 assert((bundle.optional_skills || []).length === 6, 'bundle should have 6 optional skills');
 
 for (const id of [...(bundle.required_skills || []), ...(bundle.optional_skills || []), ...(bundle.load_order || [])]) {
@@ -171,11 +171,13 @@ assert(unresolved.length === 0, `unresolved delegate targets: ${unresolved.join(
 
 const smokeQueries = [
   ['Codex Desktop visual design loop with imagegen screenshots and vision QA', 'visual-loop-qa', 5],
+  ['first time user flow onboarding confusing overwhelming next action recovery', 'user-flow-friction-auditor', 3],
   ['generate UI assets hero image product mockup imagegen asset', 'imagegen-asset-director', 3],
   ['responsive vision mobile desktop viewport text overflow', 'responsive-vision-auditor', 3],
   ['hover focus modal loading error dropdown interaction states', 'interaction-state-inspector', 3],
   ['screenshot regression visual baseline before after diff', 'screenshot-regression-guard', 3],
-  ['real content long names empty state ugly data layout fuzzing', 'real-content-layout-fuzzer', 3]
+  ['real content long names empty state ugly data layout fuzzing', 'real-content-layout-fuzzer', 3],
+  ['art bible component system design tokens reusable contract drift', 'component-system-steward', 3]
 ];
 
 for (const [query, expectedId, maxRank] of smokeQueries) {

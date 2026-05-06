@@ -50,10 +50,12 @@
 ## Required Team
 
 - `design/visual-loop-qa.yaml`
+- `design/user-flow-friction-auditor.yaml`
 - `design/imagegen-asset-director.yaml`
 - `design/responsive-vision-auditor.yaml`
 - `design/interaction-state-inspector.yaml`
 - `design/brand-consistency-enforcer.yaml`
+- `design/component-system-steward.yaml`
 - `design/art-bible-extractor.yaml`
 - `design/design-token-surgeon.yaml`
 - `design/screenshot-regression-guard.yaml`
