@@ -7,7 +7,7 @@ If you installed the native Codex skill with `npm run install:codex`, start prom
 ## Shortest Useful Prompt
 
 ```text
-Use codex-visual-builder-guild on this app. Run it, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect the screenshots with Codex App vision, record concrete vision observations by viewport, check whether the user flow has a clear next action and whether reusable patterns follow the art bible/component system, fix the single highest-impact visual issue or flow issue, use at most 1-2 specialist lenses only if screenshots prove they are needed, use vision-backed lens handoff packets if more than one specialist is useful, then finish with the Run Report Contract: goal, viewport matrix, state matrix, screenshots inspected, vision observations, top issues, chosen issue, lens used, handoff log, exact fix, verification, accepted visual change, still weak, reusable rule, automation notes.
+Use codex-visual-builder-guild on this app. Run it, screenshot desktop, tablet, mobile, and one awkward in-between width, inspect the screenshots with Codex App vision, record concrete vision observations by viewport, check whether the user flow has a clear next action and whether reusable patterns follow the art bible/component system, fix the single highest-impact visual issue or flow issue, use at most 1-2 specialist lenses only if screenshots prove they are needed, use vision-backed lens handoff packets if more than one specialist is useful, then run the Post-Fix Ruthlessness Check for awkward leftover onboarding, duplicated actions, floating copy, box soup, text-first clutter, and responsive regressions. Make one more focused fix if that check reveals a higher-impact visible issue. Finish with the Run Report Contract: goal, viewport matrix, state matrix, screenshots inspected, vision observations, top issues, chosen issue, lens used, handoff log, exact fix, verification, post-fix ruthlessness, accepted visual change, still weak, reusable rule, automation notes.
 ```
 
 If more than one lens is useful, include a vision-backed handoff log:
@@ -54,7 +54,7 @@ Use codex-visual-builder-guild on this app.
 
 Run it locally, take desktop, tablet, mobile, and awkward in-between screenshots, inspect the rendered UI with Codex App vision, name the top 3 visual issues, fix the highest-impact one, then capture after screenshots.
 
-End with the Run Report Contract: goal, viewport matrix, state matrix, screenshots inspected with screenshot paths, vision observations, top issues, chosen issue, lens used, exact fix, verification, accepted visual change, still weak, reusable rule, automation notes.
+End with the Run Report Contract: goal, viewport matrix, state matrix, screenshots inspected with screenshot paths, vision observations, top issues, chosen issue, lens used, exact fix, verification, post-fix ruthlessness, accepted visual change, still weak, reusable rule, automation notes.
 ```
 
 Good output should include:
@@ -85,7 +85,7 @@ Use codex-visual-builder-guild on this app as a no-ceremony visual QA pass.
 
 Run the app, capture before screenshots on desktop, tablet, mobile, and one awkward in-between width, inspect the rendered UI with Codex App vision, record concrete observations, and route to at most two specialist lenses based only on screenshot evidence. If no specialist lens changes the next action, say so and use none.
 
-Fix the single highest-impact issue, capture matching after screenshots, and finish with the full Run Report Contract including viewport matrix, state matrix, accepted visual change, and automation notes.
+Fix the single highest-impact issue, capture matching after screenshots, run the Post-Fix Ruthlessness Check, make one more focused fix if it reveals a higher-impact leftover, and finish with the full Run Report Contract including viewport matrix, state matrix, post-fix ruthlessness, accepted visual change, and automation notes.
 ```
 
 ## Regression Hardening Pass

@@ -12,7 +12,7 @@ Act like a visual product team, not a one-shot code generator.
 Use this loop for visual work:
 
 ```text
-build -> run -> screenshot -> vision review -> delegate -> fix -> compare -> keep the rules
+build -> run -> screenshot -> vision review -> delegate -> fix -> compare -> post-fix ruthlessness -> keep the rules
 ```
 
 1. Establish product intent and page intent when the work is a new section, important surface, onboarding/setup flow, or major redesign.
@@ -22,7 +22,8 @@ build -> run -> screenshot -> vision review -> delegate -> fix -> compare -> kee
 5. Route narrow issues to the right guild specialist.
 6. Make focused code or asset changes.
 7. Re-screenshot and compare before/after.
-8. Summarize what changed and any reusable design rules.
+8. Run the Post-Fix Ruthlessness Check on the after screenshots.
+9. Summarize what changed and any reusable design rules.
 
 ## Minimum Useful Pass
 
@@ -33,7 +34,20 @@ When the user is new, rushed, or coming from the public repo, do not invoke the 
 3. Name the top 3 visible issues.
 4. Fix the highest-impact issue.
 5. Capture after screenshots.
-6. Report the before/after screenshot paths, what improved, what stayed weak, and one reusable rule.
+6. Run the Post-Fix Ruthlessness Check and fix any newly obvious leftover that is higher impact than the original residual risks.
+7. Report the before/after screenshot paths, what improved, what stayed weak, and one reusable rule.
+
+## Post-Fix Ruthlessness Check
+
+After the first fix and after screenshots, do not accept "better than before" as done. Inspect the after screenshots with Codex App vision and answer these exact questions:
+
+- Did the fix leave any awkward leftover onboarding, duplicated action, floating copy, box soup, text-first clutter, or misplaced setup guidance?
+- Did the fix make the product idea clearer while making the rendered screen heavier, scarier, or harder to scan?
+- Did a secondary action become more prominent than the main user route?
+- Did a desktop fix create a tablet, mobile, or awkward fluid-width regression?
+- Did the new pattern belong in the art bible/component system, or did it create one-off drift?
+
+If the answer exposes a higher-impact visible issue, make one more focused fix and re-screenshot the affected viewport/state. If the answer does not change the next action, record it as residual risk and stop.
 
 ## Responsive Viewport Discipline
 
@@ -67,6 +81,7 @@ Default to `visual-loop-qa` plus at most 1-2 specialist lenses. Route by rendere
 | screen looks polished but the user's path, next action, or recovery is unclear; surface feels overwhelming | `user-flow-friction-auditor` |
 | dashboard is pretty but not useful for repeated operation | `saas-dashboard-operator` |
 | setup guidance crowds the main work canvas, empty states feel like product setup, first-run path is unclear, or onboarding does not explain readiness | `saas-dashboard-operator` + `interaction-state-inspector` |
+| after screenshots are better but still show awkward leftover onboarding, duplicated actions, floating copy, box soup, or text-first clutter | `visual-loop-qa` + `user-flow-friction-auditor` |
 | hover, focus, modal, loading, empty, disabled, or error state is unknown | `interaction-state-inspector` |
 | contrast, focus visibility, tap target, or color-only meaning is risky | `visual-accessibility-sentinel` |
 | long content, empty data, huge numbers, missing images, or ugly real data breaks layout | `real-content-layout-fuzzer` |
@@ -141,6 +156,7 @@ Before accepting any after screenshot, actively look for these failure modes and
 - **Touching cards**: adjacent boxes with no visible breathing room, or section gaps that visually collapse.
 - **Text-first dashboarding**: the screen explains everything with paragraphs when a diagram, status strip, timeline, chart, or spatial grouping would scan faster.
 - **False improvement**: the product idea got clearer, but the rendered screen became heavier, more crowded, or harder to scan.
+- **Awkward leftovers**: the first fix solved the named problem but left duplicated actions, floating onboarding copy, stale setup guidance, or a component that no longer belongs where it is.
 
 Hard rule: if a user can point to a screenshot and say "these boxes look weird" or "this is just blobs of text," the guild run was not strict enough. Fix the visual structure, then add the reusable rule that would have caught it.
 
@@ -161,6 +177,7 @@ Every guild run must end with a compact report that proves the visual decision l
 - `handoff log`: each vision-backed lens handoff packet used, or `none - single-lens pass`.
 - `exact fix`: the files or assets changed and the smallest design decision made.
 - `verification`: what the after screenshots prove.
+- `post-fix ruthlessness`: what still looked awkward after the first fix, whether it changed the next action, and the second fix or residual risk.
 - `accepted visual change`: the intentional before/after difference to preserve.
 - `still weak`: what remains risky, confusing, or unproven.
 - `reusable rule`: one design rule future work should inherit.

@@ -112,6 +112,8 @@ function assertInstallWorks() {
     assert(output.includes("single highest-impact visual issue"), "installer prompt should bias toward one fast visible win");
     assert(output.includes("at most 1-2 specialist lenses"), "installer prompt should suppress specialist ceremony");
     assert(output.includes("Run Report Contract"), "installer prompt should require the run report contract");
+    assert(output.includes("Post-Fix Ruthlessness Check"), "installer prompt should require a post-fix ruthlessness check");
+    assert(output.includes("awkward leftover onboarding"), "installer prompt should name awkward leftovers");
     assert(output.includes("automation notes"), "installer prompt should request automation notes");
   } finally {
     fs.rmSync(tempCodexHome, { recursive: true, force: true });
@@ -298,10 +300,12 @@ for (const phrase of [
   "screenshot paths",
   "single highest-impact visual issue",
   "Run Report Contract",
+  "Post-Fix Ruthlessness Check",
   "viewport matrix",
   "state matrix",
   "screenshots inspected",
   "vision observations",
+  "post-fix ruthlessness",
   "accepted visual change",
   "automation notes",
   "reusable rule"
@@ -419,6 +423,7 @@ for (const phrase of [
   "Codex App Native Capability Router",
   "Lens Handoff Protocol",
   "Run Report Contract",
+  "Post-Fix Ruthlessness Check",
   "product intent",
   "page intent",
   "viewport matrix",
@@ -430,6 +435,7 @@ for (const phrase of [
   "handoff log",
   "exact fix",
   "accepted visual change",
+  "post-fix ruthlessness",
   "still weak",
   "reusable rule",
   "automation notes",
@@ -473,7 +479,10 @@ assert(openaiYaml.includes("imagegen only for integrated assets"), "default prom
 assert(openaiYaml.includes("single highest-impact visual issue"), "default prompt should bias toward a minimum useful pass");
 assert(openaiYaml.includes("vision-backed lens handoff packets"), "default prompt should require vision-backed lens handoff packets when specialists chain");
 assert(openaiYaml.includes("Run Report Contract"), "default prompt should require the run report contract");
+assert(openaiYaml.includes("Post-Fix Ruthlessness Check"), "default prompt should require the post-fix ruthlessness check");
+assert(openaiYaml.includes("awkward leftover onboarding"), "default prompt should name awkward leftover onboarding");
 assert(openaiYaml.includes("at most 1-2 specialist lenses"), "default prompt should suppress specialist ceremony");
+assert(openaiYaml.includes("post-fix ruthlessness"), "default prompt should include post-fix ruthlessness in the report");
 assert(openaiYaml.includes("automation notes"), "default prompt should ask for automation notes");
 assert(readme.includes("Codex App Native Guardrails"), "README should explain Codex App native guardrails");
 assert(readme.includes("The in-app browser is live context"), "README should make in-app browser context explicit");

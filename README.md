@@ -72,7 +72,7 @@ Use this when you want proof that the guild works, not a long design ceremony:
 ```text
 Use codex-visual-builder-guild on this app.
 
-Run it locally, take desktop, tablet, mobile, and awkward in-between screenshots, inspect the rendered UI with Codex App vision, name the top 3 visual issues, fix the highest-impact one, then capture after screenshots.
+Run it locally, take desktop, tablet, mobile, and awkward in-between screenshots, inspect the rendered UI with Codex App vision, name the top 3 visual issues, fix the highest-impact one, capture after screenshots, then run a Post-Fix Ruthlessness Check before accepting the result.
 
 End with a plain-English before/after summary and the screenshot paths.
 ```
@@ -85,7 +85,8 @@ Expected result:
 - The guild names the biggest visible problem.
 - The guild uses at most 1-2 specialist lenses unless screenshots prove more are needed.
 - Codex fixes one high-impact issue and screenshots the result.
-- The final answer follows the Run Report Contract: goal, viewport matrix, state matrix, screenshots inspected, vision observations, top issues, chosen issue, lens used, exact fix, verification, accepted visual change, still weak, reusable rule, automation notes.
+- Codex checks whether the first fix left awkward onboarding copy, duplicated actions, box soup, text-first clutter, or responsive regressions.
+- The final answer follows the Run Report Contract: goal, viewport matrix, state matrix, screenshots inspected, vision observations, top issues, chosen issue, lens used, exact fix, verification, post-fix ruthlessness, accepted visual change, still weak, reusable rule, automation notes.
 
 Want a disposable target? Open [`examples/first-run-demo`](examples/first-run-demo) and ask the guild to improve it.
 
